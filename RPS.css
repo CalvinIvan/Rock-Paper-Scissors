@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+    
+}
+h1 {
+    font-family: Calibri;
+    color: black;
+    text-align: center;
+}
+
+.op {
+    background-color: aqua;
+    display: inline-block;
+    
+}
+
+#hi {
+    background-color: aqua;
+}
