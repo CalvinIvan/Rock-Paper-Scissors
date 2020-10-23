@@ -17,3 +17,21 @@ h1 {
 #hi {
     background-color: aqua;
 }
+
+#rock:hover, rock:active {
+    font-size: 50px;
+    transition: all 400ms ease-in-out;
+
+}
+
+#paper:hover, paper:active {
+    font-size: 50px;
+    transition: all 400ms ease-in-out;
+
+}
+
+#scissors:hover, scissors:active {
+    font-size: 50px;
+    transition: all 400ms ease-in-out;
+
+}
