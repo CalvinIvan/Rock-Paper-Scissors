@@ -3,11 +3,40 @@ body {
     
 }
 h1 {
+    display: flex;
+    justify-content: center;
     font-family: Calibri;
     color: black;
-    text-align: center;
+    
 }
 
-.Choice {
+.Choice{
+    display: flex;
+    justify-content: center;
     
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    grid-template-columns: repeat(2, 1rem);
+}
+
+.you{ 
+    width: 15%;
+}
+
+.option{
+    margin-top: 100px;
+    margin-right: 50px;
+    border: none;
+    background: none;   
+    font-size: 45px;
+    transition: 100ms;
+    outline: none;
+}
+
+.option:hover {
+    transform: scale(1.25);
 }
