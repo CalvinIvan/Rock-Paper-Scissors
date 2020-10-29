@@ -32,6 +32,6 @@ h1 {
 
 #scissors:hover, scissors:active {
     font-size: 50px;
-    transition: all 400ms ease-in-out;
+    transition: all 40ms ease-in-out;
 
 }
