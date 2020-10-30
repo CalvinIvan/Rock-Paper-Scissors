@@ -1,50 +1,67 @@
-//Get computer input
+//Globals
+let COMPCHOICE;
+let USERCHOICE;
 
-function computerChoice() {
-  const randomNum = Math.floor(Math.random()*3);
-  switch(randomNum) {
-    case 0:
-      return 'Rock';
-      break;
-    case 1:
-      return 'Paper';
-      break;
-    case 2:
-      return 'Scissors';
-      break;
-    default: 
-      return 'Whoops, something is off!';
-      break;
+
+//Obj choices
+const choices = [{
+  name: '👊🏽',
+  beats: '✌🏽',
+  get Name() {
+    return this.name;
+  }, 
+  get Beats() {
+    return this.beats;
+  }
+},
+{
+  name: '🖐🏽',
+  beats: '👊🏽', 
+  get Name() {
+    return this.name;
+  },
+  get Beats() {
+    return this.beats;
+  }
+},
+{
+  name: '✌🏽',
+  beats: '🖐🏽',
+  get Name() {
+    return this.name;
+  },
+  get Beats() {
+    return this.beats;
+  }
+}]
+
+//Prints & generates User + Comp selection
+function shoot(clicked_id) {
+  document.getElementById('winner').innerHTML = "";
+  COMPCHOICE = choices[Math.floor(Math.random()*3)].Name;
+  if (clicked_id === '👊🏽') {
+    document.getElementById('you-R').innerHTML = '👊🏽';
+    USERCHOICE = '👊🏽';
+  } else if (clicked_id === '🖐🏽') {
+    document.getElementById('you-R').innerHTML = '🖐🏽';
+    USERCHOICE = '🖐🏽';
+  } else if (clicked_id === '✌🏽') {
+    document.getElementById('you-R').innerHTML = '✌🏽';
+    USERCHOICE = '✌🏽';
+  }
+  document.getElementById('comp-R').innerHTML = COMPCHOICE;
+  winnerCheck();
+}
+
+//Check for winner
+
+function winnerCheck() {
+  if(USERCHOICE === COMPCHOICE) {
+    document.getElementById('winner').innerHTML = 'YEEEEAAAAAAWWWW ITS A DRAAAAAWWWWW';
+  } else {
+    alert(choices[COMPCHOICE].Beats);
   }
 }
 
 
-
-
-
-//Button Click
-function Shoot(){
-    let text = document.getElementsByClassName("option1").innerHTML; 
-    // Get random number from 0-2
-    let x = document.getElementById("hi").innerHTML = (Math.ceil(Math.random() * (options.length)-1));
-    // Rock, Paper or Scissors (String value of options array)
-    let y = options[x];
-    // User input
-    let z = document.getElementsByClassName("option1").value;
-   alert(situation);
-   // document.getElementById("text").innerHTML = z;
-    // alert(y);
-    
-      
-}
-
-    
-    
-    /*let i = options[randnum()];
-    let j = document.getElementsByClassName("option1")[randnum()].value;
-    alert(situation)[randnum()].value;
-    //alert(document.getElementsByClassName("option1")[randnum()].value);
-    document.getElementById("hi").innerHTML = options[randnum()];
-    document.getElementById("counter").innerHTML++; */
- 
-
+//if (USERCHOICE.choices.Beats === COMPCHOICE.choices.Name)
