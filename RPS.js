@@ -1,67 +1,66 @@
-//Globals
-let COMPCHOICE;
 let USERCHOICE;
+let COMPCHOICE;
+let randNum;
 
-
-//Obj choices
-const choices = [{
-  name: '👊🏽',
-  beats: '✌🏽',
-  get Name() {
-    return this.name;
-  }, 
-  get Beats() {
-    return this.beats;
-  }
-},
-{
-  name: '🖐🏽',
-  beats: '👊🏽', 
-  get Name() {
-    return this.name;
+const choice = [
+  {
+    symbol: '👊🏽',
+    beats: '✌🏽',
+    get Beats() {
+      return this.beats;
+    }
   },
-  get Beats() {
-    return this.beats;
-  }
-},
-{
-  name: '✌🏽',
-  beats: '🖐🏽',
-  get Name() {
-    return this.name;
+  {
+    symbol: '🖐🏽',
+    beats: '👊🏽',
+    get Beats() {
+      return this.beats;
+    }
   },
-  get Beats() {
-    return this.beats;
+  {
+    symbol: '✌🏽',
+    beats: '🖐🏽',
+    get Beats() {
+      return this.beats;
+    }
   }
-}]
+];
 
-//Prints & generates User + Comp selection
-function shoot(clicked_id) {
-  document.getElementById('winner').innerHTML = "";
-  COMPCHOICE = choices[Math.floor(Math.random()*3)].Name;
-  if (clicked_id === '👊🏽') {
-    document.getElementById('you-R').innerHTML = '👊🏽';
-    USERCHOICE = '👊🏽';
-  } else if (clicked_id === '🖐🏽') {
-    document.getElementById('you-R').innerHTML = '🖐🏽';
-    USERCHOICE = '🖐🏽';
-  } else if (clicked_id === '✌🏽') {
-    document.getElementById('you-R').innerHTML = '✌🏽';
-    USERCHOICE = '✌🏽';
-  }
+function winner() {
+  
+  //alert(randNum);
+ // document.getElementById('winner').innerHTML = 'hi';
+
+ alert(USERCHOICE + choice[randNum].Beats);
+}
+
+//Comp function
+function compfn() {
+  COMPCHOICE = choice[randNum].symbol;
   document.getElementById('comp-R').innerHTML = COMPCHOICE;
-  winnerCheck();
+  document.getElementById('winner').innerHTML = COMPCHOICE;
 }
 
-//Check for winner
-
-function winnerCheck() {
-  if(USERCHOICE === COMPCHOICE) {
-    document.getElementById('winner').innerHTML = 'YEEEEAAAAAAWWWW ITS A DRAAAAAWWWWW';
-  } else {
-    alert(choices[COMPCHOICE].Beats);
+//User function
+function shoot(clicked_id){
+  randNum = Math.floor(Math.random()*3);
+  document.getElementById('winner').innerHTML = "";
+  if(clicked_id === '👊🏽') {
+    USERCHOICE = clicked_id;
+    document.getElementById('you-R').innerHTML = clicked_id;
+    compfn();
+    winner();
+  } else if (clicked_id === '🖐🏽') {
+    USERCHOICE = clicked_id;
+    document.getElementById('you-R').innerHTML = clicked_id;
+    compfn();
+    winner();
+  } else if (clicked_id === '✌🏽') {
+    USERCHOICE = clicked_id;
+    document.getElementById('you-R').innerHTML = clicked_id;
+    compfn();
+    winner();
   }
+  //alert(choice[randNum].symbol);
 }
 
-
-//if (USERCHOICE.choices.Beats === COMPCHOICE.choices.Name)
