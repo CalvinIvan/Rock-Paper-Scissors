@@ -1,66 +1,29 @@
-let USERCHOICE;
-let COMPCHOICE;
-let randNum;
-
-const choice = [
-  {
-    symbol: '👊🏽',
-    beats: '✌🏽',
-    get Beats() {
-      return this.beats;
+const RPS = [
+    {
+        name: '👊🏽',
+        beats: '✌🏽'
+    },
+    {
+        name: '🖐🏽',
+        beats: '👊🏽'
+    },
+    {
+        name: '✌🏽',
+        beats: '🖐🏽'
     }
-  },
-  {
-    symbol: '🖐🏽',
-    beats: '👊🏽',
-    get Beats() {
-      return this.beats;
-    }
-  },
-  {
-    symbol: '✌🏽',
-    beats: '🖐🏽',
-    get Beats() {
-      return this.beats;
-    }
-  }
-];
+]
 
-function winner() {
-  
-  //alert(randNum);
- // document.getElementById('winner').innerHTML = 'hi';
-
- alert(USERCHOICE + choice[randNum].Beats);
+const winner = (userSelect, compSelect) => {
+    if(userSelect === compSelect) {
+        console.log(userSelect);
+    }
+}
+function userSelect(clicked_id){
+    console.log(compSelect());
 }
 
-//Comp function
-function compfn() {
-  COMPCHOICE = choice[randNum].symbol;
-  document.getElementById('comp-R').innerHTML = COMPCHOICE;
-  document.getElementById('winner').innerHTML = COMPCHOICE;
+const compSelect = () => {
+    let randNum = Math.floor(Math.random()*RPS.length);
+    let cSelect = RPS[randNum];
+    return cSelect.name;
 }
-
-//User function
-function shoot(clicked_id){
-  randNum = Math.floor(Math.random()*3);
-  document.getElementById('winner').innerHTML = "";
-  if(clicked_id === '👊🏽') {
-    USERCHOICE = clicked_id;
-    document.getElementById('you-R').innerHTML = clicked_id;
-    compfn();
-    winner();
-  } else if (clicked_id === '🖐🏽') {
-    USERCHOICE = clicked_id;
-    document.getElementById('you-R').innerHTML = clicked_id;
-    compfn();
-    winner();
-  } else if (clicked_id === '✌🏽') {
-    USERCHOICE = clicked_id;
-    document.getElementById('you-R').innerHTML = clicked_id;
-    compfn();
-    winner();
-  }
-  //alert(choice[randNum].symbol);
-}
-
