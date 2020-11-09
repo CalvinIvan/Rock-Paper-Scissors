@@ -13,13 +13,12 @@ const RPS = [
     }
 ]
 
-const winner = (userSelect, compSelect) => {
-    if(userSelect === compSelect) {
-        console.log(userSelect);
-    }
+const winner = (userSelect) => {
+    console.log(`${userSelect}: ` , compSelect());
 }
-function userSelect(clicked_id){
-    console.log(compSelect());
+const userSelect = (clicked_id) => {
+    let x = document.getElementById(clicked_id).value;
+    return x;
 }
 
 const compSelect = () => {
