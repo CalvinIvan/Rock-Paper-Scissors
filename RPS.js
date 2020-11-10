@@ -13,16 +13,21 @@ const RPS = [
     }
 ]
 
-const winner = (userSelect) => {
-    console.log(`${userSelect}: ` , compSelect());
-}
-const userSelect = (clicked_id) => {
-    let x = document.getElementById(clicked_id).value;
-    return x;
+function winner(userSelect) {
+    console.log(userSelect, cSelect());
 }
 
-const compSelect = () => {
-    let randNum = Math.floor(Math.random()*RPS.length);
-    let cSelect = RPS[randNum];
-    return cSelect.name;
+
+const userSelect = (clicked_id) => {
+    let x = document.getElementById(clicked_id).value;
+    for(y = 0; y > RPS.length; y++) {
+        if(x === RPS[y].name) {
+            alert('hi');
+        }
+    }
+}
+
+const cSelect = () => {
+   selection = RPS[Math.floor(Math.random()*RPS.length)];
+   return selection.name;
 }
