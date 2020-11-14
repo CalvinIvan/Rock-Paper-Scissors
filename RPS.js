@@ -1,33 +1,51 @@
 const RPS = [
     {
         name: '👊🏽',
-        beats: '✌🏽'
+        beats: '✌🏽',
+        getname: function() {
+            return this.name;
+        }
     },
     {
         name: '🖐🏽',
-        beats: '👊🏽'
+        beats: '👊🏽',
+        getname: function() {
+            return this.name;
+        }
     },
     {
         name: '✌🏽',
-        beats: '🖐🏽'
+        beats: '🖐🏽',
+        getname: function() {
+            return this.name;
+        }
     }
 ]
 
-function winner(userSelect) {
-    console.log(userSelect, cSelect());
+function winner(userSelect, cSelection) {
+    //alert(userSelect.beats);
+    let a = cSelection;
+    //console.log(userSelect, cSelect());
+    document.getElementById('user-R').innerHTML = userSelect;
+    document.getElementById('comp-R').innerHTML = a;
 }
 
 
 const userSelect = (clicked_id) => {
-    let x = document.getElementById(clicked_id).value;
-    for(y = 0; y > RPS.length; y++) {
-        if(x === RPS[y].name) {
-            alert('hi');
+    let i = document.getElementById(clicked_id).value;
+    for(let x in RPS) {
+        if(i === RPS[x].name) {
+            i = RPS[x].name;
+            return i;
         }
     }
 }
 
-const cSelect = () => {
-   selection = RPS[Math.floor(Math.random()*RPS.length)];
+const cSelect = function(){
+    let randNum = Math.floor(Math.random()*RPS.length);
+   let selection = RPS[randNum];
    return selection.name;
 }
+
+const cSelection = cSelect();
+console.log(cSelection);
